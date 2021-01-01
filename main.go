@@ -22,7 +22,7 @@ func main() {
 
 	w := worker.New(c, common.TaskQueue, worker.Options{})
 
-	w.RegisterWorkflow(project.Workflow)
+	w.RegisterWorkflow(project.Flow)
 
 	err = w.Run(worker.InterruptCh())
 	if err != nil {

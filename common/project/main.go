@@ -12,7 +12,7 @@ import (
 )
 
 // Workflow workflow definition
-func flow(ctx workflow.Context, state common.ProjectState) error {
+func Flow(ctx workflow.Context, state common.ProjectState) error {
 	//logger := workflow.GetLogger(ctx)
 
 	for _, t := range state.Pending {
@@ -54,7 +54,7 @@ func StartWorkflow(workflowID string, state common.ProjectState) error {
 		TaskQueue: common.TaskQueue,
 	}
 
-	we, err := c.ExecuteWorkflow(context.Background(), workflowOptions, flow, state)
+	we, err := c.ExecuteWorkflow(context.Background(), workflowOptions, Flow, state)
 	if err != nil {
 		return err
 	}

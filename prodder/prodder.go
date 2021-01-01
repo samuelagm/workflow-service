@@ -7,7 +7,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/samuelagm/workflow-service/common"
-	"github.com/samuelagm/workflow-service/projectflow"
+	"github.com/samuelagm/workflow-service/common/project"
 	"go.temporal.io/sdk/client"
 )
 
@@ -27,7 +27,7 @@ func main() {
 		TaskQueue: common.TaskQueue,
 	}
 
-	we, err := c.ExecuteWorkflow(context.Background(), workflowOptions, projectflow.Main, "9-")
+	we, err := c.ExecuteWorkflow(context.Background(), workflowOptions, project.Flow, "9-")
 	if err != nil {
 		log.Fatalln("Unable to execute workflow", err)
 	}
